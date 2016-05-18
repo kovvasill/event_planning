@@ -234,3 +234,8 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/event_planning/src/app/components/login
+/event_planning/src/app/components/login
+/event_planning/src/app/components/login/loginCtrl.js
+/event_planning/src/app/components/login/loginView.html
+/event_planning/src/app/components/settings

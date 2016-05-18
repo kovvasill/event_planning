@@ -1,0 +1,22 @@
+﻿<div class="form-group form-signin paddingL30">
+    <div class="paddingT7">
+        <label for="evtName">Name</label>
+        <input type="text" id="evtName" ng-model="evtName" class="form-control">
+    </div>
+    <div class="paddingT7">
+        <label for="evtDay">Day</label>
+        <input type="date" id="evtDay" ng-model="evtDay" class="form-control">
+    </div>
+    <div class="paddingT7">
+        <label for="evtDescription">Description</label>
+        <textarea id="evtDescription" ng-model="evtDescription" rows="4" cols="50" class="form-control"></textarea>
+    </div>
+    <div class="paddingT7">
+        <label for="evtPrice">$</label>
+        <input type="number" id="evtPrice" ng-model="evtPrice" min="1" max="9999" size="4" class="form-control" />
+    </div>
+    <div class="paddingTop30 text-center">
+        <alert-bar alert-msg="{{loginErrorText}}"></alert-bar>
+        <button type="button" class="btn btn-danger" ng-click="Save()">Save</button>
+    </div>
+</div>

@@ -98,6 +98,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="src\assets\data\defaultEvents.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,12 +107,39 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="src\app\app.modules.js" />
+    <Content Include="src\app\app.controllers.js" />
+    <Content Include="src\app\app.routes.js" />
+    <Content Include="src\app\components\about\aboutCtrl.js" />
+    <Content Include="src\app\components\about\aboutView.html" />
+    <Content Include="src\app\components\event\eventCtrl.js" />
+    <Content Include="src\app\components\event\eventView.html" />
+    <Content Include="src\app\components\home\homeCtrl.js" />
+    <Content Include="src\app\components\home\homeView.html" />
+    <Content Include="src\app\components\login\loginCtrl.js" />
+    <Content Include="src\app\components\login\loginView.html" />
+    <Content Include="src\app\components\settings\settingsCtrl.js" />
+    <Content Include="src\app\components\settings\settingsView.html" />
+    <Content Include="src\app\shared\directives\alertBar\alertBarDirective.js" />
+    <Content Include="src\app\shared\directives\alertBar\alertBarView.html" />
+    <Content Include="src\app\shared\services\storageService.js" />
+    <Content Include="src\app\shared\services\utilityServices.js" />
+    <Content Include="src\assets\css\base.css" />
+    <Content Include="src\assets\libs\angular\angular-resource.min.js" />
+    <Content Include="src\assets\libs\angular\angular-route.min.js" />
+    <Content Include="src\assets\libs\angular\angular.min.js" />
+    <Content Include="src\assets\libs\bootstrap\bootstrap.min.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\assets\img\" />
+    <Folder Include="src\assets\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

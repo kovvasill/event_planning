@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html ng-app="planEventApp">
+<head>
+    <title>Event planning</title>
+	<meta charset="utf-8" />
+    <link href="src/assets/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="src/assets/css/base.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="MainCtrl">
+        <div class="navbar navbar-fixed-top displayTable">
+            <div class="container">
+                <div class="row">
+                    <div class="cell col-xs-5">
+                    </div>
+                    <div class="cell paddingT7">
+                        <input type="text" placeholder="Type city..." >
+                    </div>
+                    <div class="cell col-xs-2">
+                    </div>
+                    <div class="cell paddingT3 text-nowrap">
+                        <a class="btn btn-primary" href="#">Sign in / Register</a>
+                        <a class="btn btn-danger" ng-click="LocateTo('/event')">Organize</a>
+                    </div>
+                    <div class="cell col-xs-5">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-main">
+            <div ng-view></div>
+        </div>
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <ul class="list-unstyled">
+                            <li><a ng-click="LocateTo('/about')" class="cursorPointer">About</a></li>
+                            <li><a ng-click="LocateTo('/settings')" class="cursorPointer">Settings</a></li>
+                            <li><a ng-click="LocateTo('/home')" class="cursorPointer">List a great events</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-8">
+                        <blockquote>
+                            <p>Event planning is a great way to find new things to do and organize your own events.</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="src/assets/libs/angular/angular.min.js"></script>
+    <script src="src/assets/libs/angular/angular-resource.min.js"></script>
+    <script src="src/assets/libs/angular/angular-route.min.js"></script>
+
+    <script src="src/app/app.modules.js"></script>
+
+    <script src="src/app/shared/services/utilityServices.js"></script>
+    <script src="src/app/shared/services/storageService.js"></script>
+
+    <script src="src/app/app.controllers.js"></script>
+
+    <script src="src/app/shared/directives/alertBar/alertBarDirective.js"></script>
+    <script src="src/app/components/event/eventCtrl.js"></script>
+    <script src="src/app/components/about/aboutCtrl.js"></script>
+    <script src="src/app/components/home/homeCtrl.js"></script>
+
+    <script src="src/app/app.routes.js"></script>
+</body>
+</html>
