@@ -1,0 +1,10 @@
+﻿<div class="form-group form-signin">
+    <label for="userID">User ID</label>
+    <input type="text" id="userID" ng-model="userID" class="form-control" ng-keyup="onKeyUpLogin($event)">
+    <label for="password">Password</label>
+    <input type="password" id="password" ng-model="password" class="form-control" ng-keyup="onKeyUpLogin($event)">
+    <div class="paddingTop30 text-center">
+        <alert-bar alert-msg="{{errorText}}"></alert-bar>
+        <button type="button" class="btn btn-danger" ng-click="LogInUser()">Login</button>
+    </div>
+</div>
