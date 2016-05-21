@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "event_planning", "event_planning\event_planning.csproj", "{400E719D-4659-4524-9CC2-D6A46FA3E25C}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "evt_api", "evt_api\evt_api.xproj", "{6D804201-EC10-4454-8FA1-5AC37AE20DD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{400E719D-4659-4524-9CC2-D6A46FA3E25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{400E719D-4659-4524-9CC2-D6A46FA3E25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{400E719D-4659-4524-9CC2-D6A46FA3E25C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D804201-EC10-4454-8FA1-5AC37AE20DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D804201-EC10-4454-8FA1-5AC37AE20DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D804201-EC10-4454-8FA1-5AC37AE20DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D804201-EC10-4454-8FA1-5AC37AE20DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

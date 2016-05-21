@@ -1,25 +1,34 @@
 ﻿{
   "events": [
     {
+      "keyID": 1,
       "name": "cooking class",
+      "description": "Organise your own private cooking club! ",
       "startDate": "2016/07/07",
-      "price": "1",
-      "owner": 1001,
+      "price": 1,
+      "ownerID": 1001,
+      "cityID": 1,
       "rate": 3
     },
     {
+      "keyID": 2,
       "name": "dancing class",
+      "description": "Organise your own private dancing club! ",
       "startDate": "2016/07/08",
-      "price": "2",
-      "owner": 1002,
+      "price": 2,
+      "ownerID": 1002,
+      "cityID": 2,
       "rate": 4
     },
     {
+      "keyID": 3,
       "name": "fishing class",
+      "description": "Organise your own private fishing club! ",
       "startDate": "2016/07/09",
-      "price": "3",
-      "owner": 1003,
-      "rate":  5
+      "price": 3,
+      "ownerID": 1003,
+      "cityID": 3,
+      "rate": 5
     }
   ]
 }

@@ -1,0 +1,27 @@
+﻿<div class="form-group">
+    <h1>Cities upcoming events</h1>
+    <div class="displayTable">
+        <div class="row">
+            <div class="cell width30">
+                ID
+            </div>
+            <div class="cell col-xs-2">
+                Name
+            </div>
+            <div class="cell">
+                Country
+            </div>
+        </div>
+        <div ng-repeat="city in Cities" class="row">
+            <div class="cell width30">
+                {{city.ID}}
+            </div>
+            <div class="cell col-xs-2">
+                {{city.Name}}
+            </div>
+            <div class="cell">
+                {{city.Country}}
+            </div>
+        </div>
+    </div>
+</div>

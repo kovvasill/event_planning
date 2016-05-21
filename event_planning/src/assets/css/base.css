@@ -1,5 +1,6 @@
 ﻿html, body {
     min-width: 650px;
+    font-family: "Overlock", cursive;
 }
 
 /* begin: TABLE */
@@ -17,8 +18,29 @@
 }
 /* end: TABLE */
 
+.width30 {
+    width: 30px;
+}
+
+.width150 {
+    width: 150px;
+}
+
+.textEllipsis {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
 .alertError {
     color: red;
+}
+
+.colorWhite {
+    color: white;
+}
+.userLink a:focus, .userLink a:hover {
+    color: white;
 }
 
 .cursorPointer {
@@ -33,6 +55,10 @@
 }
 .paddingL30 {
     padding-left: 30px;
+}
+.paddingT4B4 {
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .navbar {
@@ -52,10 +78,10 @@
 }
 
 .content-main {
-    padding-top: 40px;
-    padding-right: 0px;
+    padding-top: 50px;
+    padding-right: 30px;
     padding-bottom: 1px;
-    padding-left: 0px;
+    padding-left: 30px;
     background: #d7c9db;
 }
 
@@ -79,5 +105,5 @@ label {
     margin-bottom: 0px;
 }
 .form-control {
-    width:unset;
+    width: unset;
 }

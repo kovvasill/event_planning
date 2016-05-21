@@ -94,11 +94,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="gulpfile.js" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="src\app\components\cities\citiesCtrl.js" />
+    <Content Include="src\app\components\cities\citiesView.html" />
+    <Content Include="src\app\shared\services\citiesService.js" />
     <Content Include="src\assets\data\defaultEvents.json" />
+    <Content Include="src\assets\data\defaultUsers.json" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,7 +119,7 @@
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="src\app\app.modules.js" />
-    <Content Include="src\app\app.controllers.js" />
+    <Content Include="src\app\app.base.controller.js" />
     <Content Include="src\app\app.routes.js" />
     <Content Include="src\app\components\about\aboutCtrl.js" />
     <Content Include="src\app\components\about\aboutView.html" />
@@ -121,8 +129,6 @@
     <Content Include="src\app\components\home\homeView.html" />
     <Content Include="src\app\components\login\loginCtrl.js" />
     <Content Include="src\app\components\login\loginView.html" />
-    <Content Include="src\app\components\settings\settingsCtrl.js" />
-    <Content Include="src\app\components\settings\settingsView.html" />
     <Content Include="src\app\shared\directives\alertBar\alertBarDirective.js" />
     <Content Include="src\app\shared\directives\alertBar\alertBarView.html" />
     <Content Include="src\app\shared\services\storageService.js" />

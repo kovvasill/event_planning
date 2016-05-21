@@ -1,5 +1,10 @@
-﻿<div>
-    <div ng-repeat="evt in GetEvents()">
-        {{evt.name}}
+﻿<div class="displayTable form-group">
+    <div ng-repeat="evt in GetEvents()" class="row">
+        <div class="cell width150 textEllipsis">
+            {{evt.name}}
+        </div>
+        <div class="cell paddingT4B4">
+            <a class="btn btn-danger" ng-click="LocateTo('/event/'+ evt.keyID)">Edit</a>
+        </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="planEventApp">
+<html ng-app="evtOrgApp">
 <head>
     <title>Event planning</title>
 	<meta charset="utf-8" />
@@ -7,7 +7,7 @@
     <link href="src/assets/css/base.css" rel="stylesheet" />
 </head>
 <body>
-    <div ng-controller="MainCtrl">
+    <div ng-controller="BaseCtrl">
         <div class="navbar navbar-fixed-top displayTable">
             <div class="container">
                 <div class="row">
@@ -19,8 +19,13 @@
                     <div class="cell col-xs-2">
                     </div>
                     <div class="cell paddingT3 text-nowrap">
-                        <a class="btn btn-primary" href="#">Sign in / Register</a>
+                        <span ng-show="!IsUserLoggedIn()">
+                            <a class="btn btn-primary" ng-click="LocateTo('/login')">Sign in / Register</a>
+                        </span>
                         <a class="btn btn-danger" ng-click="LocateTo('/event')">Organize</a>
+                        <span ng-show="IsUserLoggedIn()" class="userLink">
+                            <a ng-click="LocateTo('/login')" class="cursorPointer colorWhite">{{GetUserFullName()}}</a>&nbsp;
+                        </span>
                     </div>
                     <div class="cell col-xs-5">
                     </div>
@@ -36,8 +41,8 @@
                     <div class="col-xs-4">
                         <ul class="list-unstyled">
                             <li><a ng-click="LocateTo('/about')" class="cursorPointer">About</a></li>
-                            <li><a ng-click="LocateTo('/settings')" class="cursorPointer">Settings</a></li>
-                            <li><a ng-click="LocateTo('/home')" class="cursorPointer">List a great events</a></li>
+                            <li><a ng-click="LocateTo('/cities')" class="cursorPointer">Cities upcoming events</a></li>
+                            <li><a ng-click="LocateTo('/home')" class="cursorPointer">List of great events</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-8">
@@ -54,14 +59,19 @@
     <script src="src/assets/libs/angular/angular-resource.min.js"></script>
     <script src="src/assets/libs/angular/angular-route.min.js"></script>
 
+    <!--<script src="src/assets/js/site.min.js"></script>-->   
+
     <script src="src/app/app.modules.js"></script>
 
+    <script src="src/app/shared/services/citiesService.js"></script>
     <script src="src/app/shared/services/utilityServices.js"></script>
     <script src="src/app/shared/services/storageService.js"></script>
 
-    <script src="src/app/app.controllers.js"></script>
+    <script src="src/app/app.base.controller.js"></script>
 
     <script src="src/app/shared/directives/alertBar/alertBarDirective.js"></script>
+    <script src="src/app/components/cities/citiesCtrl.js"></script>
+    <script src="src/app/components/login/loginCtrl.js"></script>
     <script src="src/app/components/event/eventCtrl.js"></script>
     <script src="src/app/components/about/aboutCtrl.js"></script>
     <script src="src/app/components/home/homeCtrl.js"></script>
