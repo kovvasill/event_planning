@@ -3,6 +3,9 @@
         <div class="cell width150 textEllipsis">
             {{evt.name}}
         </div>
+        <div class="cell">
+            <span time-to-left="evt.date"></span>
+        </div>
         <div class="cell paddingT4B4">
             <a class="btn btn-danger" ng-click="LocateTo('/event/'+ evt.keyID)">Edit</a>
         </div>
