@@ -26,10 +26,18 @@
     width: 150px;
 }
 
+.width200 {
+    width: 200px;
+}
+
 .textEllipsis {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis; 
+}
+
+.textLineThrough {
+    text-decoration: line-through;
 }
 
 .alertError {

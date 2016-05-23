@@ -91,6 +91,15 @@
                     return result;
                 }
 
+                var LogOutUser = function () {
+                    logedInUser.keyID = 0;
+                    logedInUser.userID = '';
+                    logedInUser.password = '';
+                    logedInUser.firstName = '';
+                    logedInUser.lastName = '';
+                    logedInUser.age = 0;
+                }
+
                 var IsUserLoggedIn = function () {
                     return !UtilityService.StringIsEmpty(logedInUser.userID)
                 }
@@ -104,6 +113,7 @@
                     SaveUsers: SaveUsers,
                     InitUsers: InitUsers,
                     LogInUser: LogInUser,
+                    LogOutUser: LogOutUser,
                     IsUserLoggedIn: IsUserLoggedIn,
                     GetUserFullName: GetUserFullName
                 };

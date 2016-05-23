@@ -1,9 +1,20 @@
-﻿<div class="displayTable form-group">
-    <div ng-repeat="evt in GetEvents()" class="row">
-        <div class="cell width150 textEllipsis">
-            {{evt.name}}
+﻿<div class="form-group displayTable">
+    <div class="row">
+        <div class="cell width150">
+            <strong>Name</strong>
+        </div>
+        <div class="cell width200">
+            <strong>Time to left (HH:mm:ss)</strong>
         </div>
         <div class="cell">
+            
+        </div>
+    </div>
+    <div ng-repeat="evt in GetEvents()" class="row">
+        <div class="cell width150 textEllipsis" ng-class="{'textLineThrough' : EventClosed(evt.date) }">
+            {{evt.name}}
+        </div>
+        <div class="cell width200">
             <span time-to-left="evt.date"></span>
         </div>
         <div class="cell paddingT4B4">
