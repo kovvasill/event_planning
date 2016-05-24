@@ -1,0 +1,14 @@
+﻿<div class="form-group">
+    <label for="evtName">Name</label>
+    <input type="text" id="evtName" ng-model="$ctrl.evtName" class="form-control">
+    <label for="evtDate">Date</label>
+    <input type="datetime-local" id="evtDate" ng-model="$ctrl.evtDate" placeholder="yyyy-MM-ddTHH:mm:ss" class="form-control">
+    <label for="evtDescription">Description</label>
+    <textarea id="evtDescription" ng-model="$ctrl.evtDescription" rows="4" cols="50" class="form-control"></textarea>
+    <label for="evtPrice">$</label>
+    <input type="number" id="evtPrice" ng-model="$ctrl.evtPrice" min="1" max="9999" size="4" class="form-control" />
+    <div class="paddingTop30 text-center">
+        <alert-bar alert-msg="$ctrl.errorText"></alert-bar>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.Save()">{{$ctrl.btnText}}</button>
+    </div>
+</div>

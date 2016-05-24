@@ -1,13 +1,13 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('evtOrgApp').
+    angular.module('app').
         constant('uniqueKeyIDs', {
             userKeyID: 4,
             eventKeyID: 4
         });
 
-    angular.module('evtOrgApp').
+    angular.module('app').
         value('logedInUser', {
             keyID: 0,
             userID: '', 
@@ -17,7 +17,7 @@
             age: 0
         });
 
-    angular.module('evtOrgApp').
+    angular.module('app').
         factory('UsersService',
             ['$q', '$http', '$rootScope', 'UtilityService', 'logedInUser', 'uniqueKeyIDs',
             function ($q, $http, $rootScope, UtilityService, logedInUser, uniqueKeyIDs) {
@@ -119,7 +119,7 @@
                 };
             }]);
 
-    angular.module('evtOrgApp').
+    angular.module('app').
         factory('EventsService',
             ['$q', '$http', '$rootScope', 'UtilityService', 'uniqueKeyIDs',
             function ($q, $http, $rootScope, UtilityService, uniqueKeyIDs) {
@@ -136,10 +136,13 @@
 
                 var GetEventByKeyID = function (keyID) {
                     var evt = null;
-                    for (var i = 0, len = GetEvents().length; i < len; i++) {
-                        if (GetEvents()[i].keyID == keyID) {
-                            evt = GetEvents()[i];
-                            break;
+                    var evts = GetEvents();
+                    if (evts) {
+                        for (var i = 0, len = evts.length; i < len; i++) {
+                            if (evts[i].keyID == keyID) {
+                                evt = evts[i];
+                                break;
+                            }
                         }
                     }
                     return evt;

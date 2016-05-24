@@ -1,0 +1,45 @@
+﻿<div class="navbar navbar-fixed-top displayTable">
+    <div class="container">
+        <div class="row">
+            <div class="cell col-xs-5">
+            </div>
+            <div class="cell paddingT7">
+                <input type="text" placeholder="Type city...">
+            </div>
+            <div class="cell col-xs-2">
+            </div>
+            <div class="cell paddingT3 text-nowrap">
+                <span ng-show="!$ctrl.IsUserLoggedIn()">
+                    <a class="btn btn-primary" ng-link="['Login']">Sign in</a>
+                </span>
+                <a class="btn btn-danger" ng-link="['EventDetail', {id: -1}]">Organize</a>
+                <span ng-show="$ctrl.IsUserLoggedIn()" class="userLink">
+                    <a ng-link="['Login']" class="cursorPointer colorWhite">{{$ctrl.GetUserFullName()}}</a>&nbsp;
+                </span>
+            </div>
+            <div class="cell col-xs-5">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-main">
+    <ng-outlet></ng-outlet>
+</div>
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <ul class="list-unstyled">
+                    <li><a ng-link="['About']" class="cursorPointer">About</a></li>
+                    <li><a ng-link="['Cities']" class="cursorPointer">Cities upcoming events</a></li>
+                    <li><a ng-link="['Events']" class="cursorPointer">List of great events</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-8">
+                <blockquote>
+                    <p>Event planning is a great way to find new things to do and organize your own events.</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</footer>

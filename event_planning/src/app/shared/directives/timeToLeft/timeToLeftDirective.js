@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('evtOrgCtrls').
+    angular.module('app').
         directive('timeToLeft',
             ['$interval', 'dateFilter',
             function ($interval, dateFilter) {

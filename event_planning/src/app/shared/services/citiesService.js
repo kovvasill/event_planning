@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('evtOrgApp').
+    angular.module('app').
         factory('CitiesService',
             ['$resource',
             function ($resource) {

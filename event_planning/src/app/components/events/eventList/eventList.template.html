@@ -10,15 +10,15 @@
             
         </div>
     </div>
-    <div ng-repeat="evt in GetEvents()" class="row">
-        <div class="cell width150 textEllipsis" ng-class="{'textLineThrough' : EventClosed(evt.date) }">
-            {{evt.name}}
+    <div ng-repeat="evt in $ctrl.GetEvents()" class="row">
+        <div class="cell width150 textEllipsis" ng-class="{'textLineThrough' : $ctrl.EventClosed(evt.date) }">
+            <a ng-link="['EventDetail', {id: evt.keyID}]">{{evt.name}}</a>
         </div>
         <div class="cell width200">
             <span time-to-left="evt.date"></span>
         </div>
         <div class="cell paddingT4B4">
-            <a class="btn btn-danger" ng-click="LocateTo('/event/'+ evt.keyID)">Edit</a>
+            <a class="btn btn-danger" ng-link="['EventDetail', {id: evt.keyID}]">Edit</a>
         </div>
     </div>
 </div>
