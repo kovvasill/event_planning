@@ -111,7 +111,7 @@
                     return logedInUser.firstName + ' ' + logedInUser.lastName;
                 }
 
-                return {
+                var service = {
                     addUser: addUser,
                     saveUsers: saveUsers,
                     initUsers: initUsers,
@@ -120,6 +120,8 @@
                     isUserLoggedIn: isUserLoggedIn,
                     getUserFullName: getUserFullName
                 };
+                return service;
+
             }]);
 
     angular.module('app').
@@ -193,13 +195,14 @@
                     return defer.promise;
                 }
 
-                return {
+                var service = {
                     getEvents: getEvents,
                     getEventByKeyID: getEventByKeyID,
                     addEvent: addEvent,
                     saveEvents: saveEvents,
                     initEvents: initEvents
                 };
+                return service;
             }]);
 
 })();

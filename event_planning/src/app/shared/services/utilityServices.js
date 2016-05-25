@@ -4,12 +4,13 @@
     angular.module('app').
         factory('UtilityService',
             function () {
-                return {
+                var service = {
                     getLocalStorage: getLocalStorage,
                     setLocalStorage: setLocalStorage,
                     stringIsEmpty: stringIsEmpty,
                     objIsEmpty: objIsEmpty
                 };
+                return service;
 
                 function addPrefixEvPl(name) {
                     return 'ev_pl_' + name;
