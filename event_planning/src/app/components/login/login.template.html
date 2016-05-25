@@ -1,0 +1,27 @@
+﻿<div class="form-group form-signin" ng-show="$ctrl.logedInUser.userID === ''">
+    <label for="userID">User ID</label>
+    <input type="text" id="userID" ng-model="$ctrl.userID" class="form-control" >
+    <label for="password">Password</label>
+    <input type="password" id="password" ng-model="$ctrl.password" class="form-control" >
+    <div class="paddingTop30 text-center">
+        <alert-bar alert-msg="$ctrl.errorText"></alert-bar>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.LogInUser()">Login</button>
+    </div>
+</div>
+<div class="form-group" ng-hide="$ctrl.logedInUser.userID === ''">
+    <div>
+        User ID: {{$ctrl.logedInUser.userID}}
+    </div>
+    <div>
+        First Name: {{$ctrl.logedInUser.firstName}}
+    </div>
+    <div>
+        Last Name: {{$ctrl.logedInUser.lastName}}
+    </div>
+    <div>
+        Age: {{$ctrl.logedInUser.age}}
+    </div>
+    <div class="paddingTop30 text-center">
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.LogOutUser()">Logout</button>
+    </div>
+</div>
