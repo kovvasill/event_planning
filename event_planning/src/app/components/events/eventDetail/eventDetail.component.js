@@ -23,13 +23,9 @@
 
         var id;
         this.$routerOnActivate = function (next) {
-            // Get the hero identified by the route parameter
             id = next.params.id;
-            /*heroService.getHero(id).then(function (hero) {
-                $ctrl.hero = hero;
-            });*/
             if (id > 0) {
-                var evt = EventsService.GetEventByKeyID(id);
+                var evt = EventsService.getEventByKeyID(id);
                 if (evt) {
                     $ctrl.evtName = evt.name;
                     $ctrl.evtDate = new Date(evt.date);
@@ -42,24 +38,24 @@
             }
         };
 
-        $ctrl.Save = function () {
-            if (UtilityService.StringIsEmpty($ctrl.evtName)) {
+        $ctrl.save = function () {
+            if (UtilityService.stringIsEmpty($ctrl.evtName)) {
                 $ctrl.errorText = 'Name is required';
             }
             else if (new Date($ctrl.evtDate) <= new Date) {
                 $ctrl.errorText = 'Please set date in future';
             }
             else if (id > 0) {
-                var evt = EventsService.GetEventByKeyID(id);
+                var evt = EventsService.getEventByKeyID(id);
                 evt.name = $ctrl.evtName;
                 evt.date = $ctrl.evtDate;
                 evt.description = $ctrl.evtDescription;
                 evt.price = $ctrl.evtPrice;
-                EventsService.SaveEvents();
+                EventsService.saveEvents();
                 this.$router.navigate(['EventList']);
             }
             else {
-                EventsService.AddEvent({
+                EventsService.addEvent({
                     "name": $ctrl.evtName,
                     "date": $ctrl.evtDate,
                     "description": $ctrl.evtDescription,
@@ -67,7 +63,7 @@
                     "owner": 1001,
                     "rate": 3
                 });
-                EventsService.SaveEvents();
+                EventsService.saveEvents();
                 this.$router.navigate(['EventList']);
             }
         }

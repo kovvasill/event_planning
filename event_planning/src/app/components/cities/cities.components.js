@@ -13,7 +13,7 @@
     CitiesController.$inject = ['CitiesService'];
     function CitiesController(CitiesService) {
         var $ctrl = this;
-        $ctrl.Cities = CitiesService.query();
+        $ctrl.cities = CitiesService.query();
     }
 
 })();

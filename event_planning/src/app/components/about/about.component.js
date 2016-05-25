@@ -12,7 +12,7 @@
 
     function AboutController() {
         var $ctrl = this;
-        $ctrl.GetYear = function () {
+        $ctrl.getYear = function () {
             var d = new Date();
             return d.getFullYear();
         };

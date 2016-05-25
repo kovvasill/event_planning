@@ -18,8 +18,8 @@
     MainController.$inject = ['UsersService'];
     function MainController(UsersService) {
         var $ctrl = this;
-        $ctrl.IsUserLoggedIn = UsersService.IsUserLoggedIn;
-        $ctrl.GetUserFullName = UsersService.GetUserFullName;
+        $ctrl.isUserLoggedIn = UsersService.isUserLoggedIn;
+        $ctrl.getUserFullName = UsersService.getUserFullName;
     }
 
 })();

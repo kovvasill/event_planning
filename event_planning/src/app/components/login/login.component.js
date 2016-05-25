@@ -14,18 +14,18 @@
     LoginController.$inject = ['UtilityService', 'UsersService', 'logedInUser'];
     function LoginController(UtilityService, UsersService, logedInUser) {
         var $ctrl = this;
-        UsersService.InitUsers().then(function () { }, function (errorData) { });
+        UsersService.initUsers().then(function () { }, function (errorData) { });
         $ctrl.errorText = '';
         $ctrl.userID = '';
         $ctrl.password = '';
         $ctrl.logedInUser = logedInUser;    
 
-        $ctrl.LogInUser = function () {
-            if (UtilityService.StringIsEmpty($ctrl.userID)) {
+        $ctrl.logInUser = function () {
+            if (UtilityService.stringIsEmpty($ctrl.userID)) {
                 $ctrl.errorText = 'User ID is required';
             }
             else {
-                if (UsersService.LogInUser($ctrl.userID, $ctrl.password)) {
+                if (UsersService.logInUser($ctrl.userID, $ctrl.password)) {
                     // TODO: ??? how to implement it
                     //this.$router.navigate(['EventList']); 
                 }
@@ -35,8 +35,8 @@
             }
         }
 
-        $ctrl.LogOutUser = function () {
-            UsersService.LogOutUser();
+        $ctrl.logOutUser = function () {
+            UsersService.logOutUser();
         }
     }
 

@@ -9,12 +9,12 @@
             <div class="cell col-xs-2">
             </div>
             <div class="cell paddingT3 text-nowrap">
-                <span ng-show="!$ctrl.IsUserLoggedIn()">
+                <span ng-show="!$ctrl.isUserLoggedIn()">
                     <a class="btn btn-primary" ng-link="['Login']">Sign in</a>
                 </span>
                 <a class="btn btn-danger" ng-link="['EventDetail', {id: -1}]">Organize</a>
-                <span ng-show="$ctrl.IsUserLoggedIn()" class="userLink">
-                    <a ng-link="['Login']" class="cursorPointer colorWhite">{{$ctrl.GetUserFullName()}}</a>&nbsp;
+                <span ng-show="$ctrl.isUserLoggedIn()" class="userLink">
+                    <a ng-link="['Login']" class="cursorPointer colorWhite">{{$ctrl.getUserFullName()}}</a>&nbsp;
                 </span>
             </div>
             <div class="cell col-xs-5">

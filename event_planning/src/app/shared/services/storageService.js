@@ -23,34 +23,34 @@
             function ($q, $http, $rootScope, UtilityService, logedInUser, uniqueKeyIDs) {
                 var usersObj = {};
 
-                var userKeyID = parseInt(UtilityService.GetLocalStorage('USER_UNIQUE_KEY_ID'));
+                var userKeyID = parseInt(UtilityService.getLocalStorage('USER_UNIQUE_KEY_ID'));
                 if (!userKeyID) {
                     userKeyID = uniqueKeyIDs.userKeyID
                 }
 
-                var GetUsers = function () {
+                var getUsers = function () {
                     return usersObj.users;
                 }
 
-                var SetUsers = function (newUsersObj) {
+                var setUsers = function (newUsersObj) {
                     usersObj = newUsersObj;
                 }
 
-                var AddUser = function (newUser) {
+                var addUser = function (newUser) {
                     newUser.keyID = userKeyID;
                     userKeyID++;
                     usersObj.users.push(newUser);
                 }
 
-                var SaveUsers = function () {
-                    UtilityService.SetLocalStorage('USER_UNIQUE_KEY_ID', userKeyID);
-                    UtilityService.SetLocalStorage('USERS', angular.toJson(usersObj));
+                var saveUsers = function () {
+                    UtilityService.setLocalStorage('USER_UNIQUE_KEY_ID', userKeyID);
+                    UtilityService.setLocalStorage('USERS', angular.toJson(usersObj));
                 };
 
-                var InitUsers = function () {
+                var initUsers = function () {
                     var defer = $q.defer();
                     if (!$rootScope.usersWasInit) {
-                        var storedUsers = angular.fromJson(UtilityService.GetLocalStorage('USERS'));
+                        var storedUsers = angular.fromJson(UtilityService.getLocalStorage('USERS'));
                         if (storedUsers != null) {
                             usersObj = storedUsers;
                             $rootScope.usersWasInit = true;
@@ -59,7 +59,7 @@
                         else {
                             $http.get('src/assets/data/defaultUsers.json').
                                 success(function (data) {
-                                    SetUsers(data);
+                                    setUsers(data);
                                     $rootScope.usersWasInit = true;
                                     defer.resolve('done');
                                 }).
@@ -74,24 +74,27 @@
                     return defer.promise;
                 }
 
-                var LogInUser = function (userID, password) {
+                var logInUser = function (userID, password) {
                     var result = false;
-                    for (var i = 0, len = GetUsers().length; i < len; i++) {
-                        if ((GetUsers()[i].userID === userID) && (GetUsers()[i].password === password)) {
-                            logedInUser.keyID = GetUsers()[i].keyID;
-                            logedInUser.userID = GetUsers()[i].userID;
-                            logedInUser.password = GetUsers()[i].password;
-                            logedInUser.firstName = GetUsers()[i].firstName;
-                            logedInUser.lastName = GetUsers()[i].lastName;
-                            logedInUser.age = GetUsers()[i].age;
-                            result = true;
-                            break;
+                    var users = getUsers();
+                    if (users) {
+                        for (var i = 0, len = users.length; i < len; i++) {
+                            if ((users[i].userID === userID) && (users[i].password === password)) {
+                                logedInUser.keyID = users[i].keyID;
+                                logedInUser.userID = users[i].userID;
+                                logedInUser.password = users[i].password;
+                                logedInUser.firstName = users[i].firstName;
+                                logedInUser.lastName = users[i].lastName;
+                                logedInUser.age = users[i].age;
+                                result = true;
+                                break;
+                            }
                         }
                     }
                     return result;
                 }
 
-                var LogOutUser = function () {
+                var logOutUser = function () {
                     logedInUser.keyID = 0;
                     logedInUser.userID = '';
                     logedInUser.password = '';
@@ -100,22 +103,22 @@
                     logedInUser.age = 0;
                 }
 
-                var IsUserLoggedIn = function () {
-                    return !UtilityService.StringIsEmpty(logedInUser.userID)
+                var isUserLoggedIn = function () {
+                    return !UtilityService.stringIsEmpty(logedInUser.userID)
                 }
 
-                var GetUserFullName = function () {
+                var getUserFullName = function () {
                     return logedInUser.firstName + ' ' + logedInUser.lastName;
                 }
 
                 return {
-                    AddUser: AddUser,
-                    SaveUsers: SaveUsers,
-                    InitUsers: InitUsers,
-                    LogInUser: LogInUser,
-                    LogOutUser: LogOutUser,
-                    IsUserLoggedIn: IsUserLoggedIn,
-                    GetUserFullName: GetUserFullName
+                    addUser: addUser,
+                    saveUsers: saveUsers,
+                    initUsers: initUsers,
+                    logInUser: logInUser,
+                    logOutUser: logOutUser,
+                    isUserLoggedIn: isUserLoggedIn,
+                    getUserFullName: getUserFullName
                 };
             }]);
 
@@ -125,18 +128,18 @@
             function ($q, $http, $rootScope, UtilityService, uniqueKeyIDs) {
                 var eventsObj = {};
 
-                var eventKeyID = parseInt(UtilityService.GetLocalStorage('EVENT_UNIQUE_KEY_ID'));
+                var eventKeyID = parseInt(UtilityService.getLocalStorage('EVENT_UNIQUE_KEY_ID'));
                 if (!eventKeyID) {
                     eventKeyID = uniqueKeyIDs.eventKeyID
                 }
 
-                var GetEvents = function () {
+                var getEvents = function () {
                     return eventsObj.events;
                 };
 
-                var GetEventByKeyID = function (keyID) {
+                var getEventByKeyID = function (keyID) {
                     var evt = null;
-                    var evts = GetEvents();
+                    var evts = getEvents();
                     if (evts) {
                         for (var i = 0, len = evts.length; i < len; i++) {
                             if (evts[i].keyID == keyID) {
@@ -148,25 +151,25 @@
                     return evt;
                 };
 
-                var SetEvents = function (newEventsObj) {
+                var setEvents = function (newEventsObj) {
                     eventsObj = newEventsObj;
                 }
 
-                var AddEvent = function (newEvent) {
+                var addEvent = function (newEvent) {
                     newEvent.keyID = eventKeyID;
                     eventKeyID++;
                     eventsObj.events.push(newEvent);
                 }
 
-                var SaveEvents = function () {
-                    UtilityService.SetLocalStorage('EVENT_UNIQUE_KEY_ID', eventKeyID);
-                    UtilityService.SetLocalStorage('EVENTS', angular.toJson(eventsObj));
+                var saveEvents = function () {
+                    UtilityService.setLocalStorage('EVENT_UNIQUE_KEY_ID', eventKeyID);
+                    UtilityService.setLocalStorage('EVENTS', angular.toJson(eventsObj));
                 };
 
-                var InitEvents = function () {
+                var initEvents = function () {
                     var defer = $q.defer();
                     if (!$rootScope.eventsWasInit) {
-                        var storedEvents = angular.fromJson(UtilityService.GetLocalStorage('EVENTS'));
+                        var storedEvents = angular.fromJson(UtilityService.getLocalStorage('EVENTS'));
                         if (storedEvents != null) {
                             eventsObj = storedEvents;
                             $rootScope.eventsWasInit = true;
@@ -175,7 +178,7 @@
                         else {
                             $http.get('src/assets/data/defaultEvents.json').
                                 success(function (data) {
-                                    SetEvents(data);
+                                    setEvents(data);
                                     $rootScope.eventsWasInit = true;
                                     defer.resolve('done');
                                 }).
@@ -191,11 +194,11 @@
                 }
 
                 return {
-                    GetEvents: GetEvents,
-                    GetEventByKeyID: GetEventByKeyID,
-                    AddEvent: AddEvent,
-                    SaveEvents: SaveEvents,
-                    InitEvents: InitEvents
+                    getEvents: getEvents,
+                    getEventByKeyID: getEventByKeyID,
+                    addEvent: addEvent,
+                    saveEvents: saveEvents,
+                    initEvents: initEvents
                 };
             }]);
 
