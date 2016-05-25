@@ -4,14 +4,16 @@
     angular.module('app.cities')
         .component('cities', {
             templateUrl: 'src/app/components/cities/cities.template.html',
-            controller:
-                function (CitiesService) {
-                    var $ctrl = this;
-                    $ctrl.Cities = CitiesService.query();
-                },
+            controller: CitiesController,
             $routeConfig: [
                 { path: '/', name: 'Cities', component: 'cities', useAsDefault: true }
             ]
         });
+
+    CitiesController.$inject = ['CitiesService'];
+    function CitiesController(CitiesService) {
+        var $ctrl = this;
+        $ctrl.Cities = CitiesService.query();
+    }
 
 })();

@@ -3,12 +3,7 @@
 
     angular.module('app').
         factory('UtilityService',
-            ['$location',
-            function ($location) {
-                var LocateTo = function (path) {
-                    $location.path(path);
-                }
-
+            function () {
                 function AddPrefixEvPl(name) {
                     return 'ev_pl_' + name;
                 }
@@ -67,7 +62,6 @@
                 }
 
                 return {
-                    LocateTo: LocateTo,
                     GetLocalStorage: GetLocalStorage,
                     SetLocalStorage: SetLocalStorage,
                     StringIsEmpty: StringIsEmpty,
@@ -75,6 +69,6 @@
                     GetTextWidth: GetTextWidth,
                     GetFormatedDateTime: GetFormatedDateTime
                 };
-            }]);
+            });
 
 })();

@@ -106,7 +106,9 @@
     <Content Include="src\app\components\cities\cities.template.html" />
     <Content Include="src\app\components\cities\cities.module.js" />
     <Content Include="src\app\components\events\events.module.js" />
+    <Content Include="src\app\components\login\login.component.js" />
     <Content Include="src\app\components\login\login.module.js" />
+    <Content Include="src\app\components\login\login.template.html" />
     <Content Include="src\app\components\main\main.components.js" />
     <Content Include="src\app\components\main\main.template.html" />
     <Content Include="src\app\components\main\main.module.js" />
@@ -133,8 +135,6 @@
     <Content Include="src\app\components\events\eventDetail\eventDetail.template.html" />
     <Content Include="src\app\components\events\eventList\eventList.component.js" />
     <Content Include="src\app\components\events\eventList\eventList.template.html" />
-    <Content Include="src\app\components\login\login.component.js" />
-    <Content Include="src\app\components\login\login.template.html" />
     <Content Include="src\app\shared\directives\alertBar\alertBarDirective.js" />
     <Content Include="src\app\shared\directives\alertBar\alertBarView.html" />
     <Content Include="src\app\shared\services\storageService.js" />
