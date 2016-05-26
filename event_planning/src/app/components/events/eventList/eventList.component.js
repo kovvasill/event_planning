@@ -7,8 +7,8 @@
             controller: EventListController
         })
 
-    EventListController.$inject = ['EventsService', 'dateFilter'];
-    function EventListController(EventsService, dateFilter) {
+    EventListController.$inject = ['EventsService', 'dateFilter', 'UsersService'];
+    function EventListController(EventsService, dateFilter, UsersService) {
         var $ctrl = this;
         EventsService.initEvents().then(function () { }, function (errorData) { });
         $ctrl.getEvents = EventsService.getEvents;
@@ -18,6 +18,7 @@
             var ms = moment(dtSch, "DD/MM/YYYY HH:mm:ss").diff(moment(dtNow, "DD/MM/YYYY HH:mm:ss"));
             return (ms < 0);
         }
+        $ctrl.isUserLoggedIn = UsersService.isUserLoggedIn;
     }
 
 })();

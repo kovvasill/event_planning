@@ -4,6 +4,10 @@
     angular.module('app').
         factory('UtilityService',
             function () {
+                var objIsEmpty = function (obj) {
+                    return (!obj) || (Object.keys(obj).length === 0); // returns 0 if empty or an integer > 0 if non-empty
+                }
+
                 var service = {
                     getLocalStorage: getLocalStorage,
                     setLocalStorage: setLocalStorage,
@@ -25,10 +29,6 @@
                 function stringIsEmpty(str) {
                     // for checking if a string is blank, null, undefined or contains only white-space
                     return (!str || /^\s*$/.test(str) || str.length === 0 || !str.trim());
-                }
-
-                var objIsEmpty = function (obj) {
-                    return (!obj) || (Object.keys(obj).length === 0); // returns 0 if empty or an integer > 0 if non-empty
                 }
             });
 

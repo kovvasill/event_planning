@@ -26,8 +26,7 @@
             }
             else {
                 if (UsersService.logInUser($ctrl.userID, $ctrl.password)) {
-                    // TODO: ??? how to implement it
-                    //this.$router.navigate(['EventList']); 
+                    this.$router.navigate(['Events']);
                 }
                 else {
                     $ctrl.errorText = 'User ID or password is incorrect';

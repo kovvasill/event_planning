@@ -51,7 +51,7 @@
                     var defer = $q.defer();
                     if (!$rootScope.usersWasInit) {
                         var storedUsers = angular.fromJson(UtilityService.getLocalStorage('USERS'));
-                        if (storedUsers != null) {
+                        if (storedUsers !== null) {
                             usersObj = storedUsers;
                             $rootScope.usersWasInit = true;
                             defer.resolve('done');
@@ -118,7 +118,8 @@
                     logInUser: logInUser,
                     logOutUser: logOutUser,
                     isUserLoggedIn: isUserLoggedIn,
-                    getUserFullName: getUserFullName
+                    getUserFullName: getUserFullName,
+                    getUsers: getUsers
                 };
                 return service;
 
@@ -144,7 +145,7 @@
                     var evts = getEvents();
                     if (evts) {
                         for (var i = 0, len = evts.length; i < len; i++) {
-                            if (evts[i].keyID == keyID) {
+                            if (evts[i].keyID === keyID) {
                                 evt = evts[i];
                                 break;
                             }
@@ -172,7 +173,7 @@
                     var defer = $q.defer();
                     if (!$rootScope.eventsWasInit) {
                         var storedEvents = angular.fromJson(UtilityService.getLocalStorage('EVENTS'));
-                        if (storedEvents != null) {
+                        if (storedEvents !== null) {
                             eventsObj = storedEvents;
                             $rootScope.eventsWasInit = true;
                             defer.resolve('done');

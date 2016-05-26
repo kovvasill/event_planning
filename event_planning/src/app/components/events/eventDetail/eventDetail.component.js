@@ -8,8 +8,8 @@
             controller: EventDetailController
         })
 
-    EventDetailController.$inject = ['EventsService', 'UtilityService'];
-    function EventDetailController(EventsService, UtilityService) {
+    EventDetailController.$inject = ['EventsService', 'UtilityService', 'UsersService'];
+    function EventDetailController(EventsService, UtilityService, UsersService) {
         var $ctrl = this;
         $ctrl.errorText = '';
         $ctrl.evtName = '';
@@ -20,6 +20,9 @@
         $ctrl.evtDescription = '';
         $ctrl.evtPrice = 0;
         $ctrl.btnText = 'Save';
+        $ctrl.countInvitedUsers = 0;
+
+        UsersService.initUsers();
 
         var id;
         this.$routerOnActivate = function (next) {
@@ -66,6 +69,34 @@
                 EventsService.saveEvents();
                 this.$router.navigate(['EventList']);
             }
+        }
+
+        $ctrl.usrs = null;
+        $ctrl.getInvitedUsers = function () {
+            if (UtilityService.objIsEmpty($ctrl.usrs)) {
+                $ctrl.usrs = UsersService.getUsers();
+                if (!UtilityService.objIsEmpty($ctrl.usrs)) {
+                    for (var i = 0, len = $ctrl.usrs.length; i < len; i++) {
+                        $ctrl.usrs[i].selected = false;
+                    }
+                }
+            }
+            return $ctrl.usrs;
+        }
+
+        $ctrl.inviteUsers = function () {
+            $ctrl.countInvitedUsers = 0;
+            if (!UtilityService.objIsEmpty($ctrl.usrs)) {
+                for (var i = 0, len = $ctrl.usrs.length; i < len; i++) {
+                    if ($ctrl.usrs[i].selected) {
+                        $ctrl.countInvitedUsers++;
+                    }
+                }
+            }
+        }
+
+        $ctrl.getCountOfInvitedUsers = function () {
+            return $ctrl.countInvitedUsers;
         }
     }
 

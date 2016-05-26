@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="gulpfile.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -145,6 +146,9 @@
     <Content Include="src\assets\libs\angular\angular.min.js" />
     <Content Include="src\assets\libs\angular\angular_1_router.js" />
     <Content Include="src\assets\libs\bootstrap\bootstrap.min.css" />
+    <Content Include="src\assets\libs\bootstrap\bootstrap.min.js" />
+    <Content Include="src\assets\libs\jquery\jquery.min.js" />
+    <Content Include="src\assets\libs\bootstrap\ui-bootstrap.min.js" />
     <Content Include="src\assets\libs\moment\moment.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>

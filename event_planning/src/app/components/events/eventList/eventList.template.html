@@ -18,7 +18,8 @@
             <span time-to-left="evt.date"></span>
         </div>
         <div class="cell paddingT4B4">
-            <a class="btn btn-danger" ng-link="['EventDetail', {id: evt.keyID}]">Edit</a>
+            <a class="btn btn-danger" ng-link="['EventDetail', {id: evt.keyID}]">Edit</a>&nbsp;
+            <a class="btn btn-danger" ng-show="$ctrl.isUserLoggedIn()" title="Apply for event">+</a>
         </div>
     </div>
 </div>
